@@ -59,6 +59,7 @@ async function displayinfo(data){
     citydisplay.textContent = city;
     tempdisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;    
     tempdisplay.appendChild(far);
+    far.style.backgroundColor = "green";
     let clicks = 0;
     far.addEventListener("click", () => {
         clicks++;
