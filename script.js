@@ -6,7 +6,7 @@ const apikey = "0f1898561d35d0f99a631e3daa549190";
 
 form.addEventListener('submit' , async event => {
         event.preventDefault();
-        const city = enter.value.toLowerCase();
+        const city = enter.value.toLowerCase().trim();
 
         if(city){
             try{
@@ -24,11 +24,17 @@ form.addEventListener('submit' , async event => {
         }
 });
 
+function capitalizeFirstLetter(str) {
+
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
 async function getweather(city){
     const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`;
     const response = await fetch(apiurl);
 
     if(!response.ok){
+        city = capitalizeFirstLetter(city)
         throw new Error(`Can't Find the city ${city}.`);
     }
 
@@ -48,19 +54,40 @@ async function displayinfo(data){
     const windspeeddisplay = document.createElement("p");
     const descdisplay = document.createElement("p");
     const wethemoji = document.createElement("img");
+    const far = document.createElement("button");
 
     citydisplay.textContent = city;
     tempdisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
+    let clicks = 0;
+    far.addEventListener("click", () => {
+        clicks++;
+        if(clicks%2 == 1){
+        tempdisplay.textContent = `${((temp - 273.15) * 9/5 + 32).toFixed(1)}°F`;
+        far.style.backgroundColor = "red";
+        far.textContent = "°C"  
+        tempdisplay.appendChild(far);
+        }
+        else{       
+
+        tempdisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
+        far.style.backgroundColor = "green";
+        far.textContent = "°F"    
+        tempdisplay.appendChild(far);
+        };
+
+    })
     humiditydisplay.textContent = `Humidity: ${humidity}`;
     windspeeddisplay.textContent = `Windspeed: ${speed}`;
     descdisplay.textContent = description;
+    far.textContent = "°F"
+
     wethemoji.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     await new Promise((resolve, reject) => {
         wethemoji.onload = resolve;
         wethemoji.onerror = reject;
     });
    
-
+    tempdisplay.appendChild(far);
     info.appendChild(citydisplay);
     info.appendChild(tempdisplay);
     info.appendChild(humiditydisplay);
@@ -74,15 +101,9 @@ async function displayinfo(data){
     windspeeddisplay.classList.add("windspeed");
     descdisplay.classList.add("desc");
     wethemoji.classList.add("emoji");
+    far.classList.add("far")
 };
 
-function emoji(icon){
-    switch(true){
-        case (id >= 200 && id < 300):
-            return ""
-        
-    }
-};
 
 function disperror(message) {
     const error = document.createElement("p");
