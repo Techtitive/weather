@@ -85,8 +85,7 @@ p {
 }
 
 .emoji {
-    font-size: 6rem;
-    margin: 0px;
+    width: 100px;
 }
 
 .error {
@@ -101,6 +100,10 @@ p {
     padding-bottom: 20px;
     border-radius: 20px;
     background-color: hsl(0, 0%, 30%);
+}
+
+.desc {
+    font-style: italic;
 }
 
 /*
