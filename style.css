@@ -114,4 +114,28 @@ p {
 <p class="id">clear sky</p>
 <p class="emoji">☀️</p>
 <p class="error">error</p>
-*\
+*/
+
+@media (max-width: 400px) {
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .info {
+        margin: auto;
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px; 
+    }
+
+    .container {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .body {
+        width: auto;
+    }
+}
+
