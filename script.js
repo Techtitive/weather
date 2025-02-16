@@ -57,7 +57,8 @@ async function displayinfo(data){
     const far = document.createElement("button");
 
     citydisplay.textContent = city;
-    tempdisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
+    tempdisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;    
+    tempdisplay.appendChild(far);
     let clicks = 0;
     far.addEventListener("click", () => {
         clicks++;
@@ -87,7 +88,7 @@ async function displayinfo(data){
         wethemoji.onerror = reject;
     });
    
-    tempdisplay.appendChild(far);
+
     info.appendChild(citydisplay);
     info.appendChild(tempdisplay);
     info.appendChild(humiditydisplay);
