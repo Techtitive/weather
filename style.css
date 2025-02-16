@@ -122,8 +122,9 @@ p {
     }
 
     .info {
-        margin: auto;
-        width: calc(100% - 60px);
+        width: auto;
+        margin: 0 auto;
+        max-width: calc(100% - 60px);
         margin-left: 20px;
         margin-right: 20px; 
     }
