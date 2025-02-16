@@ -124,9 +124,9 @@ p {
     .info {
         width: auto;
         margin: 0 auto;
-        max-width: calc(100% - 60px);
-        margin-left: 20px;
-        margin-right: 20px; 
+        max-width: calc(100% - 40px);
+        padding: 0 20px;   
+        box-sizing: border-box; 
     }
 
     .container {
