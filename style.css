@@ -167,5 +167,29 @@ p {
     .body {
         width: auto;
     }
+
+    .far {
+        display: flex;
+        font-weight: bold;
+        padding: 7px 5px;
+        border-radius: 8px;
+        background-color: hsla(120, 100%, 25%, 0.6);
+        color: white;
+        text-shadow: 0px 0px 2px black;
+        cursor: pointer;
+        justify-content: center;
+        text-align: center;
+        text-align: center;
+        align-items: center;
+        background-color: hsla(0, 0%, 50%, 0.493);
+    }
+    
+    .far:hover {
+        background-color: hsla(120, 100%, 25%, 0.8);
+    }
+    
+    .far:active {
+        background-color: hsla(120, 100%, 25%, 1.0);
+    }
 }
 
